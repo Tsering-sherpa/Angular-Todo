@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>Create task<button style="float: right;" mat-button mat-dialog-close>x</button></h1>
+<div mat-dialog-content>
+    <label>Task name</label>
+    <mat-form-field appearance="fill">
+        <input placeholder="Enter task name" matInput [(ngModel)]="data.task">
+    </mat-form-field>
+
+    <div class="row">
+        <div class="col-sm">
+            <label>Choose list</label>
+            <mat-form-field appearance="outline">
+                <mat-select>
+                    <mat-option>Personal</mat-option>
+                    <mat-option>Finance</mat-option>
+                    <mat-option>Birthday</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-sm">
+            <label>Choose priority</label>
+            <mat-form-field appearance="outline">
+                <mat-select>
+                    <mat-option>Personal</mat-option>
+                    <mat-option>Finance</mat-option>
+                    <mat-option>Birthday</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-sm">
+            <label>Set date and time</label>
+            <mat-form-field appearance="outline">
+            <input matInput [matDatepicker]="picker" placeholder="Choose date and time">
+            <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button class="cancel" mat-raised-button (click)="onNoClick()">Cancel</button>
+    <button class="add" mat-raised-button [mat-dialog-close]="data" cdkFocusInitial>Add task</button>
+</div>

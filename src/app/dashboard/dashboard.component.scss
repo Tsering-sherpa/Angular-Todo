@@ -1,0 +1,123 @@
+.dashboard {
+    max-width: 1440px;
+    top: 108px;
+    margin: auto;
+    padding: 40, 40;
+    .main-content {
+        padding: 40px;
+        .new-task {
+            width: 196px;
+            height: 48px;
+            float: right;
+            /* Bajra */
+            background: #be263b;
+            box-sizing: border-box;
+            border-radius: 5px;
+            font-size: 16px;
+            line-height: 24px;
+
+            /* identical to box height, or 150% */
+            color: #ffffff;
+        }
+        .date-head {
+            top: 132px;
+            p {
+                padding-bottom: 32px;
+                margin-top: -16px;
+            }
+        }
+
+        .overview {
+            .mat-card {
+                max-width: 416px;
+                height: 140px;
+                top: 24px;
+
+                padding-left: 58px;
+                background: #ffffff;
+                border: 1px solid #e3e3e3;
+                border-radius: 10px;
+                img {
+                    width: 51px;
+                    height: 56px;
+                    top: 42px;
+                    bottom: 42px;
+                }
+                .mat-card-header {
+                    position: absolute;
+                    left: 30.26%;
+                    top: 10.29%;
+                    .mat-card-title {
+                        font-weight: 500;
+                        font-size: 32px;
+                        line-height: 40px;
+                        /* identical to box height, or 125% */
+                        /* Black */
+                        color: #000000;
+                    }
+                    .mat-card-subtitle {
+                        font-weight: normal;
+                        font-size: 20px;
+                        line-height: 28px;
+                        /* identical to box height, or 140% */
+                        /* Gray 3 */
+                        color: #828282;
+                    }
+                }
+            }
+        }
+        .details {
+            margin-top: 32px;
+            font-size: 24px;
+            height: 32px;
+
+            .todays-task {
+                left: 18px;
+                top: 28px;
+                max-width: 471px;
+                .row {
+                    margin-top: 28px;
+                    background: #ffffff;
+                    border: 1px solid #e3e3e3;
+                    border-radius: 10px;
+                    .mat-list-option {
+                        border-bottom: 1px solid #e0e0e0;
+                        .mat-chip {
+                            left:176px;
+                        }
+                    }
+                }
+            }
+            .list-name {
+                top: 28px;
+                left: 57px;
+                max-width: 832px;
+                .mat-raised-button {
+                    color: #be263b;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 16px;
+                    float: right;
+                    width: 155px;
+                    height: 40px;
+                    /* Bajra */
+                    border: 1px solid #be263b;
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                }
+                .row {
+                    margin-top: 28px;
+                    background: #ffffff;
+                    border: 1px solid #e3e3e3;
+                    border-radius: 10px;
+                    .mat-list-option {
+                        border-bottom: 1px solid #e0e0e0;
+                    }
+                }
+            }
+        }
+        .modal-dialog {
+            background-color: blues;
+        }
+    }
+}

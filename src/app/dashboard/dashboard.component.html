@@ -1,0 +1,106 @@
+<app-nagivation></app-nagivation>
+<div class="dashboard">
+    <div class="main-content">
+        <div class="row">
+            <div class="col-sm">
+                <div class="date-head">
+                    <h2>{{today | date:'dd MMMM YYYY'}}</h2>
+                    <p>you have to keep up the place to accomplish your task in time</p>
+                </div>
+            </div>
+            <div class="col-sm">
+                <button class="new-task" mat-raised-button (click)="openCreateTaskDialog()">Create
+                    new task</button>
+            </div>
+        </div>
+
+        <div class="overview">
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Overview</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <mat-card>
+                        <img mat-sm-image src="../../assets/today's task.png" alt="Todays task">
+                        <mat-card-header>
+                            <mat-card-subtitle>Today's tasks</mat-card-subtitle>
+                            <mat-card-title>5</mat-card-title>
+                        </mat-card-header>
+                    </mat-card>
+                </div>
+                <div class="col-sm">
+                    <mat-card>
+                        <img mat-sm-image src="../../assets/upcoming.png" alt="Todays task">
+                        <mat-card-header>
+                            <mat-card-subtitle>Upcoming tasks</mat-card-subtitle>
+                            <mat-card-title>5</mat-card-title>
+                        </mat-card-header>
+                    </mat-card>
+                </div>
+                <div class="col-sm">
+                    <mat-card>
+                        <img mat-sm-image src="../../assets/overdue.png" alt="Overdue task">
+                        <mat-card-header>
+                            <mat-card-subtitle>Overdue tasks</mat-card-subtitle>
+                            <mat-card-title>5</mat-card-title>
+                        </mat-card-header>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+        <div class="details">
+            <div class="row">
+                <div class="col-sm todays-task">
+                    <span>Todays task <span>5</span></span>
+                    <div class="row">
+                        <div class="col-sm">
+                            <mat-selection-list #shoes [multiple]="false">
+                                <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
+                                    <mat-checkbox>
+                                        <span>{{shoe}} <p>Task name</p></span>
+                                        <mat-chip-list aria-label="Fish selection">
+                                            <mat-chip>Medium</mat-chip>
+                                        </mat-chip-list>
+                                    </mat-checkbox>
+                                </mat-list-option>
+                            </mat-selection-list>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm list-name">
+                    <span>List name</span>
+                    <button mat-raised-button (click)="openCreateListDialog()">Create new list</button>
+                    <div class="row">
+                        <div class="col-sm">
+                            <mat-accordion>
+                                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title *ngIf ="list">
+                                            {{list}}
+                                        </mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <mat-selection-list #shoes [multiple]="false">
+                                        <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
+                                            <span>{{shoe}}
+                                            </span>
+                                        </mat-list-option>
+                                    </mat-selection-list>
+                                </mat-expansion-panel>
+                            </mat-accordion>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul *ngFor ="let item in result">
+        <li>
+            <i>{{item.title}}</i>
+        </li>
+    </ul>
+    
+</div>

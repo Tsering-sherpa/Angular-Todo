@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" routerLink="/dashboard">TODO APP</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="isMenuCollapsed = !isMenuCollapsed">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
+        <button mat-icon-button class="btn-profile">
+            <span id="profileImage">AK</span>
+        </button>
+        <button routerLink="/login" mat-icon-button class="btn-logout">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+        </button>
+    </div>
+</nav>

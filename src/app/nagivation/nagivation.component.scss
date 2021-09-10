@@ -1,0 +1,30 @@
+.navbar-brand {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.2em;
+  color: #be263b;
+}
+.collapse {
+  position: absolute;
+  left: 1204px;
+  .btn-profile {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(251, 220, 211, 0.25);
+    #profileImage {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 26px;
+      color: #be263b;
+      text-align: center;
+    }
+  }
+  .btn-logout {
+    left: 27px;
+    font-size: 20px;
+    /* Gray 2 */
+    color: #4f4f4f;
+  }
+}

@@ -1,0 +1,61 @@
+<mat-card>
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-card-header>
+          <mat-card-title class="title-red">TODO APP</mat-card-title>
+          <mat-card-title class="title-black">Login to your account</mat-card-title>
+          <mat-card-subtitle>Welcome back!Please login to your account.</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="loginForm" class="example-form">
+            <div>
+              <label>Email address</label>
+            </div>
+            <div>
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-icon matPrefix>email</mat-icon>
+                <input type="email" class="form-control" matInput placeholder="naruto.alish@gmail.com"
+                  formControlName="email">
+                <mat-icon matSuffix>done</mat-icon>
+              </mat-form-field>
+            </div>
+            <mat-error
+              *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)"
+              class="alert">
+              <span><img src="../../assets/alert.png" alt="alert incorret email"></span><span> Incorrect email address</span>
+            </mat-error>
+            <div>
+              <label>Password</label>
+            </div>
+            <div>
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-icon matPrefix>lock</mat-icon>
+                <input type="password" matInput placeholder="Enter your password" formControlName="password">
+                <mat-icon matSuffix>visibility</mat-icon>
+              </mat-form-field>
+            </div>
+            <mat-error
+              *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+              class="alert">
+              <span><img src="../../assets/alert.png" alt="alert incorret email"></span><span> Invalid password</span>
+            </mat-error>
+            <mat-card-actions>
+              <a class="reset" routerLink="/forgot-password">forgot password?</a>
+            </mat-card-actions>
+            <mat-card-actions>
+              <button class="glow-on-hover" type="submit" (click)="logInUser()" mat-raised-button>Login</button>
+            </mat-card-actions>
+            <mat-card-actions class="register">
+              <span>Not registered yet ? </span>
+              <a routerLink="/register">Create new account</a>
+            </mat-card-actions>
+          </form>
+        </mat-card-content>
+      </td>
+      <td>
+        <img mat-card-image src="../../assets/to-do-icon.png" alt="login todo icon image">
+      </td>
+    </tr>
+  </table>
+</mat-card>
