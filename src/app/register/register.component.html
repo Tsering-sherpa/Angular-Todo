@@ -8,16 +8,20 @@
                     <mat-card-subtitle>Create an account to get started with TODO APP</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
-                    <form class="example-form">
+                    <form [formGroup]="registerForm" class="example-form" (ngSubmit)="onSubmit()">
                         <div>
                             <label>Name</label>
                         </div>
                         <div>
                             <mat-form-field class="example-full-width" appearance="outline">
                                 <mat-icon matPrefix>person</mat-icon>
-                                <input type="text" matInput placeholder="naruto.alish@gmail.com">
+                                <input type="text" class="form-control" matInput placeholder="naruto.alish@gmail.com"
+                                    formControlName="name">
                             </mat-form-field>
                         </div>
+                        <mat-error *ngIf="registerform.name.invalid && (registerform.name.dirty || registerform.name.touched)" class="alert">
+                            <span><img src="../../assets/alert.png" alt="alert incorret email"></span><span>Name is required</span>
+                        </mat-error>
                         <div>
                             <label>Gender</label>
                         </div>
@@ -34,11 +38,14 @@
                         </div>
                         <div>
                             <mat-form-field class="example-full-width" appearance="outline">
-                                <input matInput [matDatepicker]="picker">
+                                <input matInput [matDatepicker]="picker" class="form-control" formControlName="dob">
                                 <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
                                 <mat-datepicker #picker></mat-datepicker>
                             </mat-form-field>
                         </div>
+                        <mat-error *ngIf="registerform.dob.invalid && (registerform.dob.dirty || registerform.dob.touched)" class="alert">
+                            <span><img src="../../assets/alert.png" alt="alert incorret email"></span><span>Date of birth is required</span>
+                        </mat-error>
                         <div>
                             <label>Phone</label>
                         </div>
@@ -65,11 +72,15 @@
 
                                         <mat-form-field class="phone-number" appearance="outline">
                                             <mat-icon matPrefix>phone</mat-icon>
-                                            <input matInput type="tel" placeholder="(+977) 000 000 0000">
+                                            <input matInput type="tel" placeholder="(+977) 000 000 0000"
+                                                class="form-control" formControlName="phone">
                                         </mat-form-field>
                                     </td>
                                 </tr>
                             </table>
+                            <mat-error *ngIf="registerform.phone.invalid && (registerform.phone.dirty || registerform.phone.touched)" class="alert">
+                                <span><img src="../../assets/alert.png" alt="alert incorret email"></span><span>Phone is required</span>
+                            </mat-error>
                         </div>
                         <div>
                             <label>Email address</label>
@@ -77,11 +88,16 @@
                         <div>
                             <mat-form-field class="example-full-width" appearance="outline">
                                 <mat-icon matPrefix>email</mat-icon>
-                                <input type="email" matInput placeholder="naruto.alish@gmail.com">
+                                <input type="email" class="form-control" matInput placeholder="naruto.alish@gmail.com"
+                                    formControlName="email">
                             </mat-form-field>
                         </div>
+                        <mat-error *ngIf="registerform.email.invalid && (registerform.email.dirty || registerform.email.touched)" class="alert">
+                            <span><img src="../../assets/alert.png" alt="alert incorret email"></span><span>Email is required</span>
+                        </mat-error>
                         <mat-card-actions>
-                            <button class="glow-on-hover" type="submit" routerLink="/set-password" mat-raised-button>Next</button>
+                            <button class="glow-on-hover" type="submit" routerLink="/set-password"
+                                mat-raised-button>Next</button>
                         </mat-card-actions>
                         <mat-card-actions class="login">
                             <span>Already have an account ? </span>

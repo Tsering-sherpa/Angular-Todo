@@ -1,5 +1,5 @@
 import { Component, Directive, OnInit } from '@angular/core';
-import { FormGroup, FormControl, NgForm,  Validators } from '@angular/forms';
+import { FormGroup, FormControl, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,41 +8,50 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  
+
+  submitted = false;
+  spinner = false;
+
   loginForm = new FormGroup({
-      email : new FormControl('',[
-        Validators.required,
-        Validators.email,
-        Validators.pattern
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email,
+      Validators.pattern
         ("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
-        
-        
-      password: new FormControl('', [
-        Validators.required, 
-        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
-      ])
-    })
 
-    get email(){
-      return this.loginForm.get('email');
-    }
 
-    logInUser(){
-      if (this.loginForm.get('email')?.value=="test@gmail.com" && this.loginForm.get('password')?.value=="Nep@1234"){    
-        console.log("welcome to dashboard user")
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
+    ])
+  })
+
+  // convenience getter for easy access to form fields
+  get form() { return this.loginForm.controls; }
+
+
+  logInUser() {
+    if (this.loginForm.get('email')?.value == "test@gmail.com" && this.loginForm.get('password')?.value == "Nep@1234") {
+      console.log("welcome to dashboard user")
+      this.spinner = true;
+      setTimeout(()=>{
         this.router.navigate([''])
-      }
-      else{
-        console.log("you are not welcome")
-      }
+        this.spinner = false;
+      },2500
+      );
     }
+    else {
+      console.log("you are not welcome")
+    }
+  }
 
-  constructor(private router: Router) { 
+  constructor(private router: Router) {
 
   }
 
   ngOnInit(): void {
-    
+
   }
 
 }

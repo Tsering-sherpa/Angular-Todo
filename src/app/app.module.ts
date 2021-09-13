@@ -28,6 +28,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { RegisterComponent } from './register/register.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { ConfirmComponent } from './dialogs/confirm/confirm.component';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SetpasswordComponent } from './setpassword/setpassword.component';
@@ -80,7 +81,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatExpansionModule,
     MatDialogModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [
