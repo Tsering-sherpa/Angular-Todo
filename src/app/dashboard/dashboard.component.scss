@@ -82,8 +82,26 @@
                     border-radius: 10px;
                     .mat-list-option {
                         border-bottom: 1px solid #e0e0e0;
-                        .mat-chip {
-                            left:176px;
+                        .task-name {
+                            position: absolute;
+                            left: 15%;
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #333333;
+                            .task-list {
+                                font-size: 14px;
+                                color: #828282;
+                            }
+                        }
+                        .mat-chip-list {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: flex-start;
+                            padding: 6px 12px;
+                            position: relative;
+                            left: 280px;
+                            background: rgba(33, 150, 83, 0.05);
+                            border-radius: 5px;
                         }
                     }
                 }
@@ -108,10 +126,32 @@
                 .row {
                     margin-top: 28px;
                     background: #ffffff;
-                    border: 1px solid #e3e3e3;
                     border-radius: 10px;
                     .mat-list-option {
                         border-bottom: 1px solid #e0e0e0;
+
+                        .task-name {
+                            position: absolute;
+                            left: 15%;
+                            top: 10px;
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #333333;
+                        }
+                        .mat-chip-list {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: flex-start;
+                            padding: 6px 12px;
+                            position: relative;
+                            left: 280px;
+                            background: rgba(33, 150, 83, 0.05);
+                            border-radius: 5px;
+                        }
+                        .task-date{
+                            position: absolute;
+                            left:200px;
+                        }
                     }
                 }
             }

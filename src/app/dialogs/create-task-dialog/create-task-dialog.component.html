@@ -9,27 +9,25 @@
         <div class="col-sm">
             <label>Choose list</label>
             <mat-form-field appearance="outline">
-                <mat-select>
-                    <mat-option>Personal</mat-option>
-                    <mat-option>Finance</mat-option>
-                    <mat-option>Birthday</mat-option>
+                <mat-select [(ngModel)]="data.list" *ngIf="data">
+                    <mat-option value={{data.list}}>{{data.list}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
         <div class="col-sm">
             <label>Choose priority</label>
             <mat-form-field appearance="outline">
-                <mat-select>
-                    <mat-option>Personal</mat-option>
-                    <mat-option>Finance</mat-option>
-                    <mat-option>Birthday</mat-option>
+                <mat-select [(ngModel)]="data.priority">
+                    <mat-option value="High">High</mat-option>
+                    <mat-option value="Medium">Medium</mat-option>
+                    <mat-option value="Low">Low</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
         <div class="col-sm">
             <label>Set date and time</label>
             <mat-form-field appearance="outline">
-            <input matInput [matDatepicker]="picker" placeholder="Choose date and time">
+            <input matInput type="datetime-local" [(ngModel)]="data.time" placeholder="Choose date and time">
             <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>

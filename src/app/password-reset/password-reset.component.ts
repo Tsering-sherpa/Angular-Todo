@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class PasswordResetComponent implements OnInit {
-  
+  hide = true;
   onstructor() {}
 
   ngOnInit(): void {

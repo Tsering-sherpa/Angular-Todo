@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
 
   submitted = false;
   spinner = false;
+  hide = true;
 
   loginForm = new FormGroup({
     email: new FormControl('', [

@@ -57,12 +57,12 @@
                     <span>Todays task <span>5</span></span>
                     <div class="row">
                         <div class="col-sm">
-                            <mat-selection-list #shoes [multiple]="false">
-                                <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
+                            <mat-selection-list [multiple]="false">
+                                <mat-list-option *ngIf="data">
                                     <mat-checkbox>
-                                        <span>{{shoe}} <p>Task name</p></span>
+                                        <span class="task-name">{{data.task}} <p class="task-list">{{data.list}}</p></span>
                                         <mat-chip-list aria-label="Fish selection">
-                                            <mat-chip>Medium</mat-chip>
+                                            <mat-chip>{{data.priority}}</mat-chip>
                                         </mat-chip-list>
                                     </mat-checkbox>
                                 </mat-list-option>
@@ -78,14 +78,21 @@
                             <mat-accordion>
                                 <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                                     <mat-expansion-panel-header>
-                                        <mat-panel-title *ngIf ="list">
+                                        <mat-panel-title *ngIf="list">
                                             {{list}}
                                         </mat-panel-title>
                                     </mat-expansion-panel-header>
-                                    <mat-selection-list #shoes [multiple]="false">
-                                        <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
-                                            <span>{{shoe}}
-                                            </span>
+                                    <mat-selection-list [multiple]="false">
+                                        <mat-list-option *ngIf="data">
+                                            <mat-checkbox>
+                                                <span class="task-name">{{data.task}}</span>
+                                                <mat-chip-list aria-label="Fish selection">
+                                                    <mat-chip>{{data.priority}}</mat-chip>
+                                                </mat-chip-list>
+                                                <span class="task-date">
+                                                    {{data.date|dateAgo}}
+                                                </span>
+                                            </mat-checkbox>
                                         </mat-list-option>
                                     </mat-selection-list>
                                 </mat-expansion-panel>
@@ -97,10 +104,4 @@
             </div>
         </div>
     </div>
-    <ul *ngFor ="let item in result">
-        <li>
-            <i>{{item.title}}</i>
-        </li>
-    </ul>
-    
 </div>

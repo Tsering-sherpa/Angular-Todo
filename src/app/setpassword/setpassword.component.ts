@@ -11,7 +11,8 @@ export class SetpasswordComponent implements OnInit {
 
   setPasswordForm!: FormGroup;
   submitted = false;
-
+  hide = true;
+  hideconfirm = true;
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -19,11 +20,11 @@ export class SetpasswordComponent implements OnInit {
       password: ['',
         [Validators.required,
         Validators.minLength(8),
-        Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$")
-        ]],
+        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
+      ]],
       confirmPassword: ['',
         [Validators.required,
-        Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$")
+          Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
         ]]
     },
       {

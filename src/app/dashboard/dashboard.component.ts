@@ -10,11 +10,11 @@ import { TaskServiceService } from '../service/task-service.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  data =  []
+  data : any;
   task!: string;
   list!: string;
   priority!: string;
-  time!: string
+  time!: number;
   dialog: any;
 
   constructor(private dialogRef: MatDialog, private taskService: TaskServiceService) {
@@ -26,9 +26,9 @@ export class DashboardComponent implements OnInit {
       width: '768px',
     });
 
-    dialogRef.afterClosed().subscribe((result: string) => {
+    dialogRef.afterClosed().subscribe((result: []) => {
       console.log('The dialog was closed');
-      this.task = result;
+      this.data = result;
     });
   }
 

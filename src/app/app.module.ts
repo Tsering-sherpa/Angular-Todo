@@ -36,6 +36,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateTaskDialogComponent } from './dialogs/create-task-dialog/create-task-dialog.component';
 import { CreateListDialogComponent } from './dialogs/create-list-dialog/create-list-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DateAgoPipe } from './pieps/date-ago.pipe';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { HttpClientModule } from '@angular/common/http';
     SetpasswordComponent,
     CreateTaskDialogComponent,
     CreateListDialogComponent,
+    DateAgoPipe,
 
   ],
   entryComponents: [
@@ -82,7 +84,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     FormsModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+
 
   ],
   providers: [
