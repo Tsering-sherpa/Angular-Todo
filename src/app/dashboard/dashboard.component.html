@@ -60,7 +60,8 @@
                             <mat-selection-list [multiple]="false">
                                 <mat-list-option *ngIf="data">
                                     <mat-checkbox>
-                                        <span class="task-name">{{data.task}} <p class="task-list">{{data.list}}</p></span>
+                                        <span class="task-name">{{data.task}} <p class="task-list">{{data.list}}</p>
+                                            </span>
                                         <mat-chip-list aria-label="Fish selection">
                                             <mat-chip>{{data.priority}}</mat-chip>
                                         </mat-chip-list>
@@ -97,7 +98,6 @@
                                     </mat-selection-list>
                                 </mat-expansion-panel>
                             </mat-accordion>
-
                         </div>
                     </div>
                 </div>

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { TaskModel } from 'src/shared/model/task.model';
 import { CreateListDialogComponent } from '../dialogs/create-list-dialog/create-list-dialog.component';
 import { CreateTaskDialogComponent } from '../dialogs/create-task-dialog/create-task-dialog.component';
 import { TaskServiceService } from '../service/task-service.service';
+import { ApiService } from '../service/task/api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,14 +12,16 @@ import { TaskServiceService } from '../service/task-service.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  data : any;
+  data: any;
   task!: string;
   list!: string;
   priority!: string;
-  time!: number;
+  time!: string;
   dialog: any;
 
-  constructor(private dialogRef: MatDialog, private taskService: TaskServiceService) {
+  taskModelObj: TaskModel = new TaskModel();
+
+  constructor(private dialogRef: MatDialog, private taskService: TaskServiceService, private taskapi: ApiService) {
   }
 
   openCreateTaskDialog() {
@@ -26,7 +30,7 @@ export class DashboardComponent implements OnInit {
       width: '768px',
     });
 
-    dialogRef.afterClosed().subscribe((result: []) => {
+    dialogRef.afterClosed().subscribe((result: any) => {
       console.log('The dialog was closed');
       this.data = result;
     });
@@ -41,6 +45,14 @@ export class DashboardComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: string) => {
       console.log('The dialog was closed');
       this.list = result;
+      this.taskModelObj.list = result;
+      this.taskapi.postTask(this.taskModelObj).
+        subscribe(res => {
+          console.log(res);
+          alert("Task added successfully")
+        },
+          err =>
+            alert("Something went wrong" + err))
     });
   }
 
@@ -56,7 +68,6 @@ export class DashboardComponent implements OnInit {
       console.warn(data);
     }
     )
-
   }
-
 }
+

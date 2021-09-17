@@ -1,0 +1,22 @@
+
+    .mat-dialog-title {
+        margin: auto;
+        text-align: center;
+        padding-top: 24px;
+    }
+    .mat-dialog-content {
+        margin: auto;
+        text-align: center;
+        padding-top: 8px;
+    }
+    .mat-dialog-actions {
+        padding-top: 24px;
+        padding-bottom: 32px;
+        .mat-button {
+            margin: auto;
+            background: #be263b;
+            border-radius: 5px;
+            color: #ffffff;
+            padding: 9px 40px;
+        }
+    }

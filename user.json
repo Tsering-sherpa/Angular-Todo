@@ -1,0 +1,66 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "task": "dfasdf",
+      "list": "hero",
+      "priority": "Medium",
+      "date": "2021-09-17T17:02"
+    },
+    {
+      "id": 3,
+      "list": "hello there",
+      "task": {
+        "id": 0,
+        "task": "dfasdf",
+        "priority": "Medium",
+        "date": "2021-09-17T17:17"
+      }
+    },
+    {
+      "id": 4,
+      "list": "hello there",
+      "task": {
+        "id": 0,
+        "task": "dfasdf",
+        "priority": "Medium",
+        "date": "2021-09-17T17:17"
+      }
+    },
+    {
+      "id": 5,
+      "list": "",
+      "task": {
+        "id": 0,
+        "task": "dfasdf",
+        "priority": "Medium",
+        "date": "2021-10-06T17:20"
+      }
+    },
+    {
+      "id": 6,
+      "list": "tsering",
+      "task": {
+        "id": 0,
+        "task": "",
+        "priority": "",
+        "date": ""
+      }
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
