@@ -6,7 +6,7 @@
 
     <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
         <button mat-icon-button class="btn-profile">
-            <span id="profileImage">AK</span>
+            <span id="profileImage">{{name|nameInitials}}</span>
         </button>
         <button routerLink="/login" mat-icon-button class="btn-logout">
             <mat-icon>logout</mat-icon>

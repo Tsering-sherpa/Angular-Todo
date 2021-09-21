@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { LoginComponent } from 'src/app/login/login.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private login: LoginComponent) { }
 
   postUser(data: any) {
     return this.http.post<any>("https://localhost:3000/posts", data)
@@ -35,6 +36,10 @@ export class ApiService {
     .pipe(map((res:any)=>{
       return res;
     }))
+  }
+
+  loggedIn(){
+    return !!localStorage.getItem('token')
   }
 
 }

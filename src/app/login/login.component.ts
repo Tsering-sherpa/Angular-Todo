@@ -36,23 +36,29 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.get('email')?.value == "test@gmail.com" && this.loginForm.get('password')?.value == "Nep@1234") {
       console.log("welcome to dashboard user")
       this.spinner = true;
+      localStorage.setItem("token", "loginxxx112233successful")
       setTimeout(()=>{
-        this.router.navigate([''])
+        this.onLogInSuccess()
         this.spinner = false;
       },2500
       );
     }
     else {
-      console.log("you are not welcome")
+      alert("User doesnot exists with that email and password!!");
+      
     }
   }
 
-  constructor(private router: Router) {
+  constructor(public router: Router) {
 
   }
 
   ngOnInit(): void {
 
+  }
+
+  onLogInSuccess(){
+    this.router.navigate([''])
   }
 
 }

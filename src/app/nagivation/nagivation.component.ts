@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NagivationComponent implements OnInit {
 
+  name = "Tsering Wongdi Sherpa";
+
   constructor() { }
 
   public isMenuCollapsed = true;

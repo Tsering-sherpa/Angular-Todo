@@ -36,7 +36,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateTaskDialogComponent } from './dialogs/create-task-dialog/create-task-dialog.component';
 import { CreateListDialogComponent } from './dialogs/create-list-dialog/create-list-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DateAgoPipe } from './pieps/date-ago.pipe';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
+import { NameInitialsPipe } from './pipes/name-initials.pipe';
 
 @NgModule({
   declarations: [
@@ -51,8 +52,8 @@ import { DateAgoPipe } from './pieps/date-ago.pipe';
     SetpasswordComponent,
     CreateTaskDialogComponent,
     CreateListDialogComponent,
+    NameInitialsPipe,
     DateAgoPipe,
-
   ],
   entryComponents: [
     ConfirmComponent

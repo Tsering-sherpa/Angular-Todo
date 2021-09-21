@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { TaskModel } from 'src/shared/model/task.model';
 import { CreateListDialogComponent } from '../dialogs/create-list-dialog/create-list-dialog.component';
 import { CreateTaskDialogComponent } from '../dialogs/create-task-dialog/create-task-dialog.component';
-import { TaskServiceService } from '../service/task-service.service';
 import { ApiService } from '../service/task/api.service';
 
 @Component({
@@ -21,7 +20,7 @@ export class DashboardComponent implements OnInit {
 
   taskModelObj: TaskModel = new TaskModel();
 
-  constructor(private dialogRef: MatDialog, private taskService: TaskServiceService, private taskapi: ApiService) {
+  constructor(private dialogRef: MatDialog, private taskapi: ApiService) {
   }
 
   openCreateTaskDialog() {
@@ -63,11 +62,7 @@ export class DashboardComponent implements OnInit {
   panelOpenState = false;
 
   ngOnInit() {
-    this.taskService.getData().subscribe((data: any) => {
-      this.data = data;
-      console.warn(data);
-    }
-    )
+    
   }
 }
 
