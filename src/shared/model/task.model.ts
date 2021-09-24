@@ -1,11 +1,11 @@
-export class ListModel {
+export class TaskModel {
     id: number = 0;
     task: string = '';
     priority: string = '';
     date: string = '';
+    list = new ListModel();
 }
-export class TaskModel {
+export class ListModel {
     id: number = 0;
     list: string = '';
-    task = new ListModel();
 }

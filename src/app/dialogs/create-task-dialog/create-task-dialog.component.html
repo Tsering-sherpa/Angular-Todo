@@ -13,7 +13,8 @@
                 <label>Choose list</label>
                 <mat-form-field appearance="outline">
                     <mat-select formControlName="list" *ngIf="data">
-                        <mat-option value={{data.list}}>{{data.list}}</mat-option>
+                        <span *ngFor="let listData of data.list">
+                        <mat-option value={{listData.id}}>{{listData.list}}</mat-option></span>
                     </mat-select>
                 </mat-form-field>
                 <mat-error *ngIf="taskform.list.invalid && (taskform.list.dirty || taskform.list.touched)" class="alert">

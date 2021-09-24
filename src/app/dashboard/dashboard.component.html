@@ -58,10 +58,12 @@
                     <div class="row">
                         <div class="col-sm">
                             <mat-selection-list [multiple]="false">
-                                <mat-list-option *ngIf="data">
+                                <mat-list-option *ngFor="let data of taskData">
                                     <mat-checkbox>
-                                        <span class="task-name">{{data.task}} <p class="task-list">{{data.list}}</p>
+                                        <span class="task-name">{{data.task}} <span *ngFor="let row of listData">
+                                                <p class="task-list" *ngIf="data.list == row.id">{{row.list}}</p>
                                             </span>
+                                        </span>
                                         <mat-chip-list aria-label="Fish selection">
                                             <mat-chip>{{data.priority}}</mat-chip>
                                         </mat-chip-list>
@@ -77,21 +79,22 @@
                     <div class="row">
                         <div class="col-sm">
                             <mat-accordion>
-                                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+                                    *ngFor="let row of listData">
                                     <mat-expansion-panel-header>
-                                        <mat-panel-title *ngIf="list">
-                                            {{list}}
+                                        <mat-panel-title>
+                                            <span>{{row.list}}</span><span class="badge">{{listCount}}</span>
                                         </mat-panel-title>
                                     </mat-expansion-panel-header>
-                                    <mat-selection-list [multiple]="false">
-                                        <mat-list-option *ngIf="data">
+                                    <mat-selection-list [multiple]="false" *ngFor="let data of taskData">
+                                        <mat-list-option *ngIf="row.id == data.list">
                                             <mat-checkbox>
                                                 <span class="task-name">{{data.task}}</span>
                                                 <mat-chip-list aria-label="Fish selection">
                                                     <mat-chip>{{data.priority}}</mat-chip>
                                                 </mat-chip-list>
                                                 <span class="task-date">
-                                                    {{"data.date"|dateAgo}}
+                                                    {{data.date | date:'dd MMMM hh:mm aa'}}
                                                 </span>
                                             </mat-checkbox>
                                         </mat-list-option>

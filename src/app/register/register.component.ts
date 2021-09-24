@@ -21,20 +21,18 @@ export class RegisterComponent implements OnInit {
       dob: ['',
         Validators.required,
       ],
+      country: ['',
+        Validators.required
+      ],
       phone: ['',
         Validators.required,
-        Validators.maxLength(10)
+        Validators.minLength(5)
       ],
       email: ['', [
         Validators.required,
         Validators.email,
         Validators.pattern
           ("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
-      password: ['',
-        [Validators.required,
-        Validators.minLength(8),
-        Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$")
-        ]]
     })
   }
 

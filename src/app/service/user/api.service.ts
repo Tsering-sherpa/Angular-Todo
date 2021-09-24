@@ -1,38 +1,39 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { LoginComponent } from 'src/app/login/login.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http: HttpClient, private login: LoginComponent) { }
+  userApi = "https://614d64ece3cf1f001712d0f6.mockapi.io/users"
+
+  constructor(private http: HttpClient) { }
 
   postUser(data: any) {
-    return this.http.post<any>("https://localhost:3000/posts", data)
+    return this.http.post<any>(this.userApi, data)
       .pipe(map((res: any) => {
         return res;
       }))
   }
 
   getUser() {
-    return this.http.get<any>("https://localhost:3000/posts")
+    return this.http.get<any>(this.userApi)
       .pipe(map((res: any) => {
         return res;
       }))
   }
 
   updateUser(data: any, id: number) {
-    return this.http.put<any>("https://localhost:3000/posts",+id, data)
+    return this.http.put<any>(this.userApi,+id, data)
       .pipe(map((res: any) => {
         return res;
       }))
   }
 
   deletUeser(id: number){
-    return this.http.delete<any>("https://localhost:3000/posts"+id)
+    return this.http.delete<any>(this.userApi+id)
     .pipe(map((res:any)=>{
       return res;
     }))

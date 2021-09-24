@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { TaskModel } from 'src/shared/model/task.model';
+import { ListModel, TaskModel } from 'src/shared/model/task.model';
 import { CreateListDialogComponent } from '../dialogs/create-list-dialog/create-list-dialog.component';
 import { CreateTaskDialogComponent } from '../dialogs/create-task-dialog/create-task-dialog.component';
+import { ListApiService } from '../service/list/list-api.service';
 import { ApiService } from '../service/task/api.service';
 
 @Component({
@@ -17,15 +18,19 @@ export class DashboardComponent implements OnInit {
   priority!: string;
   time!: string;
   dialog: any;
+  listData: any;
+  taskData: any;
+  listCount!: number;
+  taskCount!: number;
 
-  taskModelObj: TaskModel = new TaskModel();
+  listModelObj: ListModel = new ListModel();
 
-  constructor(private dialogRef: MatDialog, private taskapi: ApiService) {
+  constructor(private dialogRef: MatDialog, private listApi: ListApiService, private taskApi: ApiService) {
   }
 
   openCreateTaskDialog() {
     const dialogRef = this.dialogRef.open(CreateTaskDialogComponent, {
-      data: { task: this.task, list: this.list, priority: this.priority, time: this.time },
+      data: { task: this.task, list: this.listData, priority: this.priority, time: this.time },
       width: '768px',
     });
 
@@ -44,8 +49,8 @@ export class DashboardComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: string) => {
       console.log('The dialog was closed');
       this.list = result;
-      this.taskModelObj.list = result;
-      this.taskapi.postTask(this.taskModelObj).
+      this.listModelObj.list = result;
+      this.listApi.postList(this.listModelObj).
         subscribe(res => {
           console.log(res);
           alert("Task added successfully")
@@ -55,14 +60,28 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  today: number = Date.now();
+  getAllList() {
+    this.listApi.getList().subscribe(res => {
+      this.listData = res;
+      this.listCount = Object.keys(res).length;
+    })
+  }
 
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+  getAllTask() {
+    this.taskApi.getTask().subscribe(res => {
+      this.taskData = res;
+      this.taskCount = Object.keys(res).length;
+    })
+  }
+
+
+  today: number = Date.now();
 
   panelOpenState = false;
 
   ngOnInit() {
-    
+    this.getAllList();
+    this.getAllTask();
   }
 }
 

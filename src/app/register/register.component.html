@@ -19,17 +19,20 @@
                                     formControlName="name">
                             </mat-form-field>
                         </div>
-                        <mat-error *ngIf="registerform.name.invalid && (registerform.name.dirty || registerform.name.touched)" class="alert">
-                            <span><img src="../../assets/alert.png" alt="alert incorret email"></span><span>Name is required</span>
+                        <mat-error
+                            *ngIf="registerform.name.invalid && (registerform.name.dirty || registerform.name.touched)"
+                            class="alert">
+                            <span><img src="../../assets/alert.png" alt="alert incorret email"></span><span>Name is
+                                required</span>
                         </mat-error>
                         <div>
                             <label>Gender</label>
                         </div>
                         <div>
                             <mat-radio-group aria-label="Select an option">
-                                <mat-radio-button value="male">Male</mat-radio-button>
-                                <mat-radio-button value="female">Female</mat-radio-button>
-                                <mat-radio-button value="others">Others</mat-radio-button>
+                                <mat-radio-button value="male" required>Male</mat-radio-button>
+                                <mat-radio-button value="female" required>Female</mat-radio-button>
+                                <mat-radio-button value="others" required>Others</mat-radio-button>
                             </mat-radio-group>
                         </div>
                         <br>
@@ -43,8 +46,11 @@
                                 <mat-datepicker #picker></mat-datepicker>
                             </mat-form-field>
                         </div>
-                        <mat-error *ngIf="registerform.dob.invalid && (registerform.dob.dirty || registerform.dob.touched)" class="alert">
-                            <span><img src="../../assets/alert.png" alt="alert incorret email"></span><span>Date of birth is required</span>
+                        <mat-error
+                            *ngIf="registerform.dob.invalid && (registerform.dob.dirty || registerform.dob.touched)"
+                            class="alert">
+                            <span><img src="../../assets/alert.png" alt="alert incorret email"></span><span>Date of
+                                birth is required</span>
                         </mat-error>
                         <div>
                             <label>Phone</label>
@@ -58,18 +64,17 @@
                                                 <mat-option value="Nepal"><span matPrefix><img
                                                             src="https://img.icons8.com/color/16/000000/nepal.png" /></span>Nepal
                                                     (+977)</mat-option>
-                                                <mat-option><span matPrefix><img
+                                                <mat-option value="Aus"><span matPrefix><img
                                                             src="https://img.icons8.com/color/16/000000/nepal.png" /></span>Austerlia
                                                     (+01)</mat-option>
-                                                <mat-option><span matPrefix><img
+                                                <mat-option value="US"><span matPrefix><img
                                                             src="https://img.icons8.com/color/16/000000/nepal.png" /></span>US
-                                                    (+1)</mat-option>
-                                                <mat-option><span matPrefix><img
+                                                    (+11)</mat-option>
+                                                <mat-option value="Mal"><span matPrefix><img
                                                             src="https://img.icons8.com/color/16/000000/nepal.png" /></span>Malaysia
                                                     (+994)</mat-option>
                                             </mat-select>
                                         </mat-form-field>
-
                                         <mat-form-field class="phone-number" appearance="outline">
                                             <mat-icon matPrefix>phone</mat-icon>
                                             <input matInput type="tel" placeholder="(+977) 000 000 0000"
@@ -78,8 +83,18 @@
                                     </td>
                                 </tr>
                             </table>
-                            <mat-error *ngIf="registerform.phone.invalid && (registerform.phone.dirty || registerform.phone.touched)" class="alert">
-                                <span><img src="../../assets/alert.png" alt="alert incorret email"></span><span>Phone is required</span>
+                            <mat-error
+                                *ngIf="registerform.phone.invalid && registerform.phone.errors &&  (registerform.phone.dirty || registerform.phone.touched)"
+                                class="alert">
+                                <span><img src="../../assets/alert.png" alt="alert incorret email"></span><span>Phone is
+                                    required</span>
+                            </mat-error>
+                            <mat-error
+                                *ngIf="registerform.country.invalid && (registerform.country.dirty || registerform.country.touched)"
+                                class="alert">
+                                <span>
+                                    <img src="../../assets/alert.png" alt="alert incorret email"></span><span>Select
+                                    your country</span>
                             </mat-error>
                         </div>
                         <div>
@@ -92,11 +107,14 @@
                                     formControlName="email">
                             </mat-form-field>
                         </div>
-                        <mat-error *ngIf="registerform.email.invalid && (registerform.email.dirty || registerform.email.touched)" class="alert">
-                            <span><img src="../../assets/alert.png" alt="alert incorret email"></span><span>Email is required</span>
+                        <mat-error
+                            *ngIf="registerform.email.invalid && (registerform.email.dirty || registerform.email.touched)"
+                            class="alert">
+                            <span><img src="../../assets/alert.png" alt="alert incorret email"></span><span>Email is
+                                required</span>
                         </mat-error>
                         <mat-card-actions>
-                            <button class="glow-on-hover" type="submit" routerLink="/set-password"
+                            <button [disabled]="registerForm.invalid" type="submit" routerLink="/set-password"
                                 mat-raised-button>Next</button>
                         </mat-card-actions>
                         <mat-card-actions class="login">

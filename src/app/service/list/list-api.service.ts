@@ -5,36 +5,38 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class ListApiService {
+  listApi = "https://614d64ece3cf1f001712d0f6.mockapi.io/lists"
 
   constructor(private http: HttpClient) { }
 
-  postTask(data: any) {
-    return this.http.post<any>("https://614d64ece3cf1f001712d0f6.mockapi.io/tasks", data)
+  postList(data: any) {
+    return this.http.post<any>(this.listApi, data)
       .pipe(map((res: any) => {
         return res;
       }))
   }
 
-  getTask() {
-    return this.http.get<any>("https://614d64ece3cf1f001712d0f6.mockapi.io/tasks")
+  getList() {
+    return this.http.get<any>(this.listApi)
       .pipe(map((res: any) => {
         return res;
       }))
   }
 
-  updateTask(data: any, id: number) {
-    return this.http.put<any>("https://614d64ece3cf1f001712d0f6.mockapi.io/tasks", +id, data)
+  updateList(data: any, id: number) {
+    return this.http.put<any>(this.listApi, +id, data)
       .pipe(map((res: any) => {
         return res;
       }))
   }
 
-  deleteTask(id: number) {
-    return this.http.delete<any>("https://614d64ece3cf1f001712d0f6.mockapi.io/tasks" + id)
+  deleteList(id: number) {
+    return this.http.delete<any>(this.listApi + id)
       .pipe(map((res: any) => {
         return res;
       }))
   }
 
 }
+

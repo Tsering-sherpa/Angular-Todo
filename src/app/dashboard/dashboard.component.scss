@@ -127,6 +127,14 @@
                     margin-top: 28px;
                     background: #ffffff;
                     border-radius: 10px;
+                    .badge{
+                        border-radius: 50%;
+                        background-color: rgba(251, 220, 211, 0.25);
+                        color: #BE263B;
+                        padding-left: 8px;
+                        font-style: normal;
+                        font-size: 14px;
+                    }
                     .mat-list-option {
                         border-bottom: 1px solid #e0e0e0;
 
@@ -150,7 +158,8 @@
                         }
                         .task-date{
                             position: absolute;
-                            left:200px;
+                            left:530px;
+                            margin-top: -30px;
                         }
                     }
                 }

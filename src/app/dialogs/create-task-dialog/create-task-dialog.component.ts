@@ -44,10 +44,10 @@ export class CreateTaskDialogComponent {
   get taskform() { return this.taskForm.controls; }
 
   createTask() {
-    this.taskModelObj.task.task = this.taskform.task.value;
+    this.taskModelObj.task = this.taskform.task.value;
     this.taskModelObj.list = this.taskform.list.value;
-    this.taskModelObj.task.priority = this.taskform.priority.value;
-    this.taskModelObj.task.date = this.taskform.time.value;
+    this.taskModelObj.priority = this.taskform.priority.value;
+    this.taskModelObj.date = this.taskform.time.value;
 
     this.taskapi.postTask(this.taskModelObj).
       subscribe(res => {
