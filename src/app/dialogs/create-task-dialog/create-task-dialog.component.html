@@ -49,6 +49,6 @@
     </div>
     <div mat-dialog-actions>
         <button class="cancel" mat-raised-button (click)="onNoClick()">Cancel</button>
-        <button [disabled]="taskForm.invalid" type="submit" class="add" (click)="createTask()" mat-raised-button cdkFocusInitial>Add task</button>
+        <button [disabled]="taskForm.invalid" type="submit" class="add" mat-dialog-close (click)="createTask()" mat-raised-button cdkFocusInitial>Add task</button>
     </div>
 </form>

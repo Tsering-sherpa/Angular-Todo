@@ -1,11 +1,16 @@
 <h1 mat-dialog-title>Create list<button style="float: right;" mat-button mat-dialog-close>X</button></h1>
-<div mat-dialog-content>
-    <label>List name</label>
-    <mat-form-field appearance="fill">
-        <input matInput [(ngModel)]="data.list" placeholder="Enter list name">
-    </mat-form-field>
-</div>
-<div mat-dialog-actions>
-    <button class="cancel" mat-raised-button (click)="onNoClick()">Cancel</button>
-    <button class="add" mat-raised-button [mat-dialog-close]="data.list" cdkFocusInitial>Add task</button>
-</div>
+<form [formGroup]="listForm" class="example-form">
+    <div mat-dialog-content>
+        <label>List name</label>
+        <mat-form-field appearance="fill">
+            <input matInput formControlName="list" placeholder="Enter list name">
+        </mat-form-field>
+        <mat-error *ngIf="listform.list.invalid && (listform.list.dirty || listform.list.touched)" class="alert">
+            <span><img src="../../assets/alert.png" alt="List is required"></span><span>List is blank</span>
+        </mat-error>
+    </div>
+    <div mat-dialog-actions>
+        <button class="cancel" mat-raised-button (click)="onNoClick()">Cancel</button>
+        <button [disabled]="listForm.invalid" class="add" mat-raised-button mat-dialog-close (click)="createList()" cdkFocusInitial>Add task</button>
+    </div>
+</form>

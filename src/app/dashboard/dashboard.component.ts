@@ -49,14 +49,6 @@ export class DashboardComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: string) => {
       console.log('The dialog was closed');
       this.list = result;
-      this.listModelObj.list = result;
-      this.listApi.postList(this.listModelObj).
-        subscribe(res => {
-          console.log(res);
-          alert("Task added successfully")
-        },
-          err =>
-            alert("Something went wrong" + err))
     });
   }
 
