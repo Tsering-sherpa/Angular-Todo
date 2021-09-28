@@ -27,7 +27,7 @@
                         <img mat-sm-image src="../../assets/today's task.png" alt="Todays task">
                         <mat-card-header>
                             <mat-card-subtitle>Today's tasks</mat-card-subtitle>
-                            <mat-card-title>{{taskCount}}</mat-card-title>
+                            <mat-card-title>{{todaysTask}}5</mat-card-title>
                         </mat-card-header>
                     </mat-card>
                 </div>
@@ -36,7 +36,7 @@
                         <img mat-sm-image src="../../assets/upcoming.png" alt="Todays task">
                         <mat-card-header>
                             <mat-card-subtitle>Upcoming tasks</mat-card-subtitle>
-                            <mat-card-title>5</mat-card-title>
+                            <mat-card-title>{{upcomingTask}}5</mat-card-title>
                         </mat-card-header>
                     </mat-card>
                 </div>
@@ -45,7 +45,7 @@
                         <img mat-sm-image src="../../assets/overdue.png" alt="Overdue task">
                         <mat-card-header>
                             <mat-card-subtitle>Overdue tasks</mat-card-subtitle>
-                            <mat-card-title>5</mat-card-title>
+                            <mat-card-title>{{overdueTask}}5</mat-card-title>
                         </mat-card-header>
                     </mat-card>
                 </div>
@@ -54,7 +54,7 @@
         <div class="details">
             <div class="row">
                 <div class="col-sm todays-task">
-                    <span>Todays task <span>5</span></span>
+                    <span>Todays task <span class="badge">{{todaysTask}}5</span></span>
                     <div class="row">
                         <div class="col-sm">
                             <mat-selection-list [multiple]="false">
@@ -70,7 +70,7 @@
                                             <mat-chip class="low" *ngIf="data.priority === 'Low'">{{data.priority}}
                                             </mat-chip>
                                             <mat-chip class="medium" *ngIf="data.priority === 'Medium'">
-                                                {{data.priority}}</mat-chip>
+                                                {{data.priority}}5</mat-chip>
                                         </mat-chip-list>
                                     </mat-checkbox>
                                 </mat-list-option>
@@ -88,7 +88,7 @@
                                     *ngFor="let row of listData">
                                     <mat-expansion-panel-header>
                                         <mat-panel-title>
-                                            <span>{{row.list}}</span><span class="badge">{{listCount}}</span>
+                                            <span>{{row.list}}</span><span class="badge">5</span>
                                         </mat-panel-title>
                                     </mat-expansion-panel-header>
                                     <mat-selection-list [multiple]="false" *ngFor="let data of taskData">

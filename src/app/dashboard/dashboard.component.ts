@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ListModel } from 'src/shared/model/task.model';
@@ -16,12 +17,15 @@ export class DashboardComponent implements OnInit {
   task!: string;
   list!: string;
   priority!: string;
-  time!: string;
+  time: any;
   dialog: any;
   listData: any;
   taskData: any;
-  listCount!: number;
   taskCount!: number;
+  taskFormatData: any;
+  todaysTask!: number;
+  upcomingTask!: number;
+  overdueTask!: number;
 
   listModelObj: ListModel = new ListModel();
 
@@ -56,14 +60,25 @@ export class DashboardComponent implements OnInit {
   getAllList() {
     this.listApi.getList().subscribe(res => {
       this.listData = res;
-      this.listCount = Object.keys(this.listData).length;
     })
   }
 
   getAllTask() {
     this.taskApi.getTask().subscribe(res => {
       this.taskData = res;
-      this.taskCount = Object.keys(this.taskData).length;
+      for (let task of this.taskData){
+        this.taskFormatData = formatDate(task.date, 'YYYY-MM-dd', 'enUS');
+        if(this.taskFormatData == this.today){
+          this.todaysTask++
+        }
+        if(this.taskFormatData > this.today){
+          this.upcomingTask++
+        }
+        if(this.taskFormatData < this.today){
+          this.overdueTask++
+        }
+      }
+      console.log(this.todaysTask)
     })
   }
 

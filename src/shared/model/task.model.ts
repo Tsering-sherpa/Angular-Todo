@@ -2,7 +2,7 @@ export class TaskModel {
     id: number = 0;
     task: string = '';
     priority: string = '';
-    date: string = '';
+    date: any;
     list = new ListModel();
 }
 

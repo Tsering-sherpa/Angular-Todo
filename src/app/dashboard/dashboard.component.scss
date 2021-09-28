@@ -75,6 +75,13 @@
                 left: 18px;
                 top: 28px;
                 max-width: 471px;
+                .badge {
+                    border-radius: 50%;
+                    background-color: rgba(251, 220, 211, 0.25);
+                    color: #be263b;
+                    font-style: normal;
+                    font-size: 16px;
+                }
                 .row {
                     margin-top: 28px;
                     background: #ffffff;
@@ -82,6 +89,7 @@
                     border-radius: 10px;
                     .mat-list-option {
                         border-bottom: 1px solid #e0e0e0;
+                        height: 87px;
                         .task-name {
                             position: absolute;
                             left: 15%;

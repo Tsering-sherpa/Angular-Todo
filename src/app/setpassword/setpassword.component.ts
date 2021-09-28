@@ -3,7 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserModel } from 'src/shared/model/user.model';
 import { MustMatch } from 'src/shared/validator/mustmatch';
+import { hasNumber, hasSpecialCharacter, hasUpperCase } from 'src/shared/validator/password-validator';
 import { ApiService } from '../service/user/api.service';
+
 
 @Component({
   selector: 'app-setpassword',
@@ -16,22 +18,25 @@ export class SetpasswordComponent implements OnInit {
   submitted = false;
   hide = true;
   hideconfirm = true;
-  registerData : any;
+  registerData: any;
 
-  userModelObj : UserModel = new UserModel();
+  userModelObj: UserModel = new UserModel();
 
-  constructor(private formBuilder: FormBuilder, private _userService: ApiService, private router : Router) { }
+  constructor(private formBuilder: FormBuilder, private _userService: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.setPasswordForm = this.formBuilder.group({
       password: ['',
-        [Validators.required,
-        Validators.minLength(8),
-        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
-      ]],
+        [
+          Validators.required,
+          Validators.minLength(8),
+          hasNumber,
+          hasUpperCase,
+          hasSpecialCharacter
+        ]],
       confirmPassword: ['',
         [Validators.required,
-          Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
+        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
         ]]
     },
       {
@@ -62,7 +67,7 @@ export class SetpasswordComponent implements OnInit {
       },
         err =>
           console.log("Something went wrong" + err))
-          this.router.navigate(['/register']);
+    this.router.navigate(['/register']);
     console.log(this.setPasswordForm.value.password)
   }
 
