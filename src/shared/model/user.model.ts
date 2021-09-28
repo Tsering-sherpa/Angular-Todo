@@ -1,5 +1,5 @@
-export class ListModel {
-    user_id: number = 0;
+export class UserModel {
+    id: number = 0;
     name: string = '';
     gender: string = '';
     dob: string = '';

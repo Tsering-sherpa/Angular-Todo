@@ -1,6 +1,7 @@
-import { Component, Directive, OnInit } from '@angular/core';
-import { FormGroup, FormControl, NgForm, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApiService } from '../service/user/api.service';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   spinner = false;
   hide = true;
+  allUser: any;
 
   loginForm = new FormGroup({
     email: new FormControl('', [
@@ -33,23 +35,29 @@ export class LoginComponent implements OnInit {
 
 
   logInUser() {
-    if (this.loginForm.get('email')?.value == "test@gmail.com" && this.loginForm.get('password')?.value == "Nep@1234") {
-      console.log("welcome to dashboard user")
-      this.spinner = true;
-      localStorage.setItem("token", "loginxxx112233successful")
-      setTimeout(()=>{
-        this.onLogInSuccess()
-        this.spinner = false;
-      },2500
-      );
-    }
-    else {
-      alert("User doesnot exists with that email and password!!");
-      
-    }
+    this._userService.getUser().subscribe(res => {
+      const user = res.find((a: any) => {
+        return a.email == this.loginForm.value.email && a.password == this.loginForm.value.password
+      });
+      if (user) {
+        console.log("welcome to dashboard user")
+        this.spinner = true;
+        setTimeout(() => {
+          this.onLogInSuccess()
+          this.spinner = false;
+        }, 1500
+        );
+      }
+      else {
+        alert("user not found")
+      }
+    },
+      err => {
+        alert("Some thing went wrorng !!")
+      })
   }
 
-  constructor(public router: Router) {
+  constructor(public router: Router, public _userService: ApiService) {
 
   }
 
@@ -57,7 +65,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  onLogInSuccess(){
+  onLogInSuccess() {
     this.router.navigate([''])
   }
 

@@ -29,7 +29,7 @@
                             <label>Gender</label>
                         </div>
                         <div>
-                            <mat-radio-group aria-label="Select an option">
+                            <mat-radio-group formControlName="gender" aria-label="Select an option">
                                 <mat-radio-button value="male" required>Male</mat-radio-button>
                                 <mat-radio-button value="female" required>Female</mat-radio-button>
                                 <mat-radio-button value="others" required>Others</mat-radio-button>
@@ -60,7 +60,7 @@
                                 <tr>
                                     <td>
                                         <mat-form-field class="country-code" appearance="outline">
-                                            <mat-select>
+                                            <mat-select formControlName="country">
                                                 <mat-option value="Nepal"><span matPrefix><img
                                                             src="https://img.icons8.com/color/16/000000/nepal.png" /></span>Nepal
                                                     (+977)</mat-option>
@@ -114,14 +114,13 @@
                                 required</span>
                         </mat-error>
                         <mat-card-actions>
-                            <button [disabled]="registerForm.invalid" type="submit" routerLink="/set-password"
-                                mat-raised-button>Next</button>
-                        </mat-card-actions>
-                        <mat-card-actions class="login">
-                            <span>Already have an account ? </span>
-                            <a routerLink="/login">Login</a>
+                            <button [disabled]="registerForm.invalid" type="submit" mat-raised-button>Next</button>
                         </mat-card-actions>
                     </form>
+                    <mat-card-actions class="login">
+                        <span>Already have an account ? </span>
+                        <a routerLink="/login">Login</a>
+                    </mat-card-actions>
                 </mat-card-content>
             </td>
             <td>

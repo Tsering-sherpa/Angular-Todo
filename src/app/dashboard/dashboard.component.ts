@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ListModel, TaskModel } from 'src/shared/model/task.model';
+import { ListModel } from 'src/shared/model/task.model';
 import { CreateListDialogComponent } from '../dialogs/create-list-dialog/create-list-dialog.component';
 import { CreateTaskDialogComponent } from '../dialogs/create-task-dialog/create-task-dialog.component';
 import { ListApiService } from '../service/list/list-api.service';
@@ -49,29 +49,29 @@ export class DashboardComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: string) => {
       console.log('The dialog was closed');
       this.list = result;
+
     });
   }
 
   getAllList() {
     this.listApi.getList().subscribe(res => {
       this.listData = res;
-      this.listCount = Object.keys(res).length;
+      this.listCount = Object.keys(this.listData).length;
     })
   }
 
   getAllTask() {
     this.taskApi.getTask().subscribe(res => {
       this.taskData = res;
-      this.taskCount = Object.keys(res).length;
+      this.taskCount = Object.keys(this.taskData).length;
     })
   }
-
 
   today: number = Date.now();
 
   panelOpenState = false;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getAllList();
     this.getAllTask();
   }

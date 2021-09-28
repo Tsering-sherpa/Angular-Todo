@@ -9,7 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { SetpasswordComponent } from './setpassword/setpassword.component';
 
 const routes: Routes = [
-  {path: '', component: DashboardComponent},
+  {path: '', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component:RegisterComponent},
   {path: 'set-password', component:SetpasswordComponent},

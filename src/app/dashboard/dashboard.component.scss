@@ -102,6 +102,45 @@
                             left: 280px;
                             background: rgba(33, 150, 83, 0.05);
                             border-radius: 5px;
+                            .high {
+                                background: rgba(235, 87, 87, 0.05);
+                                border-radius: 5px;
+                                font-style: normal;
+                                font-weight: normal;
+                                font-size: 14px;
+                                line-height: 22px;
+
+                                /* identical to box height, or 157% */
+
+                                /* Red */
+                                color: #eb5757;
+                            }
+                            .low {
+                                background: rgba(242, 153, 74, 0.05);
+                                border-radius: 5px;
+                                font-style: normal;
+                                font-weight: normal;
+                                font-size: 14px;
+                                line-height: 22px;
+
+                                /* identical to box height, or 157% */
+
+                                /* Orange */
+                                color: #f2994a;
+                            }
+                            .medium {
+                                background: rgba(33, 150, 83, 0.05);
+                                border-radius: 5px;
+                                font-style: normal;
+                                font-weight: normal;
+                                font-size: 14px;
+                                line-height: 22px;
+
+                                /* identical to box height, or 157% */
+
+                                /* Green 1 */
+                                color: #219653;
+                            }
                         }
                     }
                 }
@@ -127,10 +166,10 @@
                     margin-top: 28px;
                     background: #ffffff;
                     border-radius: 10px;
-                    .badge{
+                    .badge {
                         border-radius: 50%;
                         background-color: rgba(251, 220, 211, 0.25);
-                        color: #BE263B;
+                        color: #be263b;
                         padding-left: 8px;
                         font-style: normal;
                         font-size: 14px;
@@ -153,12 +192,49 @@
                             padding: 6px 12px;
                             position: relative;
                             left: 280px;
-                            background: rgba(33, 150, 83, 0.05);
-                            border-radius: 5px;
+                            .high {
+                                background: rgba(235, 87, 87, 0.05);
+                                border-radius: 5px;
+                                font-style: normal;
+                                font-weight: normal;
+                                font-size: 14px;
+                                line-height: 22px;
+
+                                /* identical to box height, or 157% */
+
+                                /* Red */
+                                color: #eb5757;
+                            }
+                            .low {
+                                background: rgba(242, 153, 74, 0.05);
+                                border-radius: 5px;
+                                font-style: normal;
+                                font-weight: normal;
+                                font-size: 14px;
+                                line-height: 22px;
+
+                                /* identical to box height, or 157% */
+
+                                /* Orange */
+                                color: #f2994a;
+                            }
+                            .medium {
+                                background: rgba(33, 150, 83, 0.05);
+                                border-radius: 5px;
+                                font-style: normal;
+                                font-weight: normal;
+                                font-size: 14px;
+                                line-height: 22px;
+
+                                /* identical to box height, or 157% */
+
+                                /* Green 1 */
+                                color: #219653;
+                            }
                         }
-                        .task-date{
+                        .task-date {
                             position: absolute;
-                            left:530px;
+                            left: 530px;
                             margin-top: -30px;
                         }
                     }

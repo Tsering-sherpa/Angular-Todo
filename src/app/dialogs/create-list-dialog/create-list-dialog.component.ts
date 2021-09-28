@@ -32,7 +32,6 @@ export class CreateListDialogComponent implements OnInit {
 
   createList() {
     this.listModelObj.list = this.listform.list.value;
-
     this.listApi.postList(this.listModelObj).
       subscribe(res => {
         console.log(res);
@@ -44,9 +43,7 @@ export class CreateListDialogComponent implements OnInit {
 
   // convenience getter for easy access to form fields
   get listform() { return this.listForm.controls; }
-
   ngOnInit(): void {
-
   }
 
 

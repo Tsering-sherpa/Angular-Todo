@@ -5,6 +5,7 @@ export class TaskModel {
     date: string = '';
     list = new ListModel();
 }
+
 export class ListModel {
     id: number = 0;
     list: string = '';

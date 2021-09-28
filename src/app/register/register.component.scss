@@ -1,7 +1,7 @@
 .mat-card {
     width: 768px;
     margin: auto;
-    top: 232px;
+    top: 120px;
     background: #ffffff;
 
     /* Shadow/16dp */
@@ -30,12 +30,6 @@
                 padding-left: 2px;
             }
         }
-        a {
-            color: rgb(224, 3, 77);
-        }
-        .login {
-            text-align: center;
-        }
         button {
             color: white;
             background-color: #be263b;
@@ -43,5 +37,11 @@
             height: 48px;
             border-radius: 10px;
         }
+    }
+    a {
+        color: rgb(224, 3, 77);
+    }
+    .login {
+        text-align: center;
     }
 }

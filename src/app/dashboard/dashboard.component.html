@@ -27,7 +27,7 @@
                         <img mat-sm-image src="../../assets/today's task.png" alt="Todays task">
                         <mat-card-header>
                             <mat-card-subtitle>Today's tasks</mat-card-subtitle>
-                            <mat-card-title>5</mat-card-title>
+                            <mat-card-title>{{taskCount}}</mat-card-title>
                         </mat-card-header>
                     </mat-card>
                 </div>
@@ -65,7 +65,12 @@
                                             </span>
                                         </span>
                                         <mat-chip-list aria-label="Fish selection">
-                                            <mat-chip>{{data.priority}}</mat-chip>
+                                            <mat-chip class="high" *ngIf="data.priority === 'High'">{{data.priority}}
+                                            </mat-chip>
+                                            <mat-chip class="low" *ngIf="data.priority === 'Low'">{{data.priority}}
+                                            </mat-chip>
+                                            <mat-chip class="medium" *ngIf="data.priority === 'Medium'">
+                                                {{data.priority}}</mat-chip>
                                         </mat-chip-list>
                                     </mat-checkbox>
                                 </mat-list-option>
@@ -91,7 +96,12 @@
                                             <mat-checkbox>
                                                 <span class="task-name">{{data.task}}</span>
                                                 <mat-chip-list aria-label="Fish selection">
-                                                    <mat-chip>{{data.priority}}</mat-chip>
+                                                    <mat-chip class="high" *ngIf="data.priority === 'High'">
+                                                        {{data.priority}}</mat-chip>
+                                                    <mat-chip class="low" *ngIf="data.priority === 'Low'">
+                                                        {{data.priority}}</mat-chip>
+                                                    <mat-chip class="medium" *ngIf="data.priority === 'Medium'">
+                                                        {{data.priority}}</mat-chip>
                                                 </mat-chip-list>
                                                 <span class="task-date">
                                                     {{data.date | date:'dd MMMM hh:mm aa'}}

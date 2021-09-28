@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from '../service/user/api.service';
 
 @Component({
   selector: 'app-register',
@@ -11,12 +13,15 @@ export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private _userService: ApiService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       name: ['',
         Validators.required,
+      ],
+      gender: ['',
+        Validators.required
       ],
       dob: ['',
         Validators.required,
@@ -41,13 +46,8 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-      return;
-    }
-
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
+    this._userService.registerData = this.registerForm.value;
+    this.router.navigate(['/set-password']);
   }
 
 }

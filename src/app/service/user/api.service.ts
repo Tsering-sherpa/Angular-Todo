@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-
+  registerData : any;
   userApi = "https://614d64ece3cf1f001712d0f6.mockapi.io/users"
 
   constructor(private http: HttpClient) { }
@@ -42,5 +42,6 @@ export class ApiService {
   loggedIn(){
     return !!localStorage.getItem('token')
   }
+
 
 }
