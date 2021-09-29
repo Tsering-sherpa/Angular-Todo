@@ -1,0 +1,19 @@
+@use "../variables/variable.scss" as *;
+
+@mixin dialog() {
+    .mat-form-field {
+        width: 100%;
+    }
+    .mat-dialog-actions {
+        float: right;
+        .cancel {
+            color: $color-primary;
+        }
+        .add {
+            background: $color-primary;
+            border: 1px solid $color-text;
+            box-sizing: border-box;
+            border-radius: $border-radius;
+        }
+    }
+}

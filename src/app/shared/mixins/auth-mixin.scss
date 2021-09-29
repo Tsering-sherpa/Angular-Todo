@@ -1,0 +1,57 @@
+@use "../variables/variable.scss" as *;
+
+@mixin auth() {
+    .mat-card {
+        width: 768px;
+        margin: auto;
+        top: 232px;
+
+        background: $color-background-auth;
+
+        /* Shadow/16dp */
+        box-shadow: $box-shadow;
+        border-radius: $border-radius;
+        .mat-card-header {
+            margin-left: -1em;
+            .title-red {
+                color: $color-primary;
+                padding-bottom: 1.5em;
+            }
+            .title-black {
+                padding-bottom: 1em;
+            }
+        }
+
+        .example-form {
+            .example-full-width {
+                width: 370px;
+                .mat-icon {
+                    color: $color-icon-dark;
+                }
+            }
+            a {
+                color: $color-primary;
+            }
+            .reset {
+                float: right;
+                margin-top: -1em;
+                padding-right: 1em;
+            }
+            .register {
+                text-align: center;
+            }
+
+            *//css animation on button for glowing button starts here
+    button {
+                width: 100%;
+                color: $color-text;
+                background-color: $color-primary;
+                height: 48px;
+                border-radius: $border-radius;
+            }
+        }
+        .mat-card-image {
+            margin-left: 3rem;
+        }
+    }
+}

@@ -1,7 +1,7 @@
 describe('Auth --> Register Tests', () => {
   it('allows the user to signup for a new account', () => {
     cy.visit('/register')
-    cy.get('#mat-input-0').type('Tsering Sherpa')
+    const name = cy.get('#mat-input-0').type('Tsering Sherpa')
     cy.get('.mat-radio-group').type('Other')
     cy.get('#mat-input-1').type('9/8/2021')
     // cy.get('.mat-select').type('US')
@@ -13,7 +13,8 @@ describe('Auth --> Register Tests', () => {
     cy.visit('/set-password')
     cy.get('#mat-input-0').type('Nep@1234')
     cy.get('#mat-input-1').type('Nep@1234')
-    cy.get('.mat-raised-button').contains('Signup').click()
-    cy.url().should('include', '/login')
+    cy.get('button').contains('Signup').click()
+    const user = {'name':'Tsering Sherpa', 'gender': 'male', 'dob':'2001/10/10', 'phone':'980998783', 'email':'testing@gmail.com', 'password':'Hello@1234'}
+    cy.request('POST', 'https://614d64ece3cf1f001712d0f6.mockapi.io/users', user)
   })
 })

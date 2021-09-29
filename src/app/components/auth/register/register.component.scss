@@ -1,0 +1,16 @@
+@use "../../../../app/shared/mixins/auth-mixin.scss" as mixins;
+
+@include mixins.auth;
+.country-code {
+    width: 30%;
+}
+.phone-number {
+    width: 69%;
+    padding-left: 2px;
+}
+a {
+    color: rgb(224, 3, 77);
+}
+.login {
+    text-align: center;
+}

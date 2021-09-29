@@ -1,15 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@use "app/shared/variables/variable.scss" as *;
 
 html, body { 
     height: 100%;
     max-width: 1440px;
     margin: auto;
-    background: #E5E5E5;
  }
 body {
      margin: 0; 
      font-family: Roboto, "Helvetica Neue", sans-serif; 
-     background-color: #F7F7F7;
+     background-color: $color-background;
     }
 
 /* Importing Bootstrap SCSS file. */

@@ -1,0 +1,2 @@
+@use "../../../shared/mixins/dialog-mixin.scss" as dialogMixin;
+@include dialogMixin.dialog;
